@@ -1,0 +1,5 @@
+<launch>
+	<include file="$(find rover_arm_moveit_config)/launch/demo.launch"/>
+	<node name="testing_movement" pkg="rover_arm_controller" type="test.py" respawn="false" output="screen">
+	</node>
+</launch>
