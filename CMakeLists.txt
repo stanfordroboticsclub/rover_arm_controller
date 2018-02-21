@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-project(AssemblyV4_2.SLDASM)
+project(rover_arm_controller)
 
 find_package(catkin REQUIRED)
 
