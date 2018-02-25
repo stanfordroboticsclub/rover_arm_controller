@@ -6,7 +6,7 @@
     default="False" />
   <param
     name="robot_description"
-    textfile="$(find AssemblyV4_2.SLDASM)/robots/AssemblyV4_2.SLDASM.urdf" />
+    textfile="$(find rover_arm_controller)/robots/arm_urdf.urdf" />
   <param
     name="use_gui"
     value="$(arg gui)" />
@@ -22,5 +22,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find AssemblyV4_2.SLDASM)/urdf.rviz" />
+    args="-d $(find rover_arm_controller)/urdf.rviz" />
 </launch>

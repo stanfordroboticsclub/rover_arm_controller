@@ -7,7 +7,7 @@
 for rover_arm_controller robot</p>
   </description>
   <author>me</author>
-  <maintainer email="me2@email.com" />
+  <maintainer email="me@email.com" />
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roslaunch</build_depend>
