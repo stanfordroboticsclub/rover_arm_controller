@@ -1,0 +1,217 @@
+<robot
+  name="rover_arm_controller">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.16733 0.20357 0.093298"
+        rpy="0 0 0" />
+      <mass
+        value="1.0999" />
+      <inertia
+        ixx="0.0018669"
+        ixy="0.00021943"
+        ixz="2.3876E-05"
+        iyy="0.0015878"
+        iyz="-7.2548E-05"
+        izz="0.00070269" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shoulder">
+    <inertial>
+      <origin
+        xyz="0.28724 -0.058799 -0.050607"
+        rpy="0 0 0" />
+      <mass
+        value="1.0556" />
+      <inertia
+        ixx="0.0028346"
+        ixy="-0.00078097"
+        ixz="4.5564E-05"
+        iyy="0.0041761"
+        iyz="-1.7843E-06"
+        izz="0.0020593" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.19788 -0.046984 0.2944"
+      rpy="1.5708 -1.1552 -3.0413" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="elbow">
+    <inertial>
+      <origin
+        xyz="0.24497 -0.04445 4.8233E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.6369" />
+      <inertia
+        ixx="0.0013525"
+        ixy="1.4037E-17"
+        ixz="-2.5835E-20"
+        iyy="2.3459E-21"
+        iyz="-5.8597E-18"
+        izz="0.0013525" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/elbow.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="elbow_joint"
+    type="revolute">
+    <origin
+      xyz="0.6 -0.0508 -0.00635"
+      rpy="1.5708 2.609E-15 -1.4433" />
+    <parent
+      link="shoulder" />
+    <child
+      link="elbow" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="-0.044451 -0.13778 -0.019631"
+        rpy="0 0 0" />
+      <mass
+        value="0.74012" />
+      <inertia
+        ixx="0.0032141"
+        ixy="6.6666E-08"
+        ixz="4.2196E-09"
+        iyy="0.0019776"
+        iyz="-3.9108E-05"
+        izz="0.0032116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_joint"
+    type="revolute">
+    <origin
+      xyz="0.5 0 0"
+      rpy="-0.79673 -1.1068E-15 1.5708" />
+    <parent
+      link="elbow" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
