@@ -1,0 +1,159 @@
+<robot
+  name="rover_arm_controller">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.167333020630679 -0.0932981497004772 0.203572921753306"
+        rpy="0 0 0" />
+      <mass
+        value="1.09987706637098" />
+      <inertia
+        ixx="0.00186690627375383"
+        ixy="-2.38762374457778E-05"
+        ixz="0.000219426452282904"
+        iyy="0.000702689787023486"
+        iyz="7.25476216335866E-05"
+        izz="0.00158776522165118" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shoulder">
+    <inertial>
+      <origin
+        xyz="0.0340198543920042 -0.114331741845435 0.533436578952917"
+        rpy="0 0 0" />
+      <mass
+        value="1.05564621631797" />
+      <inertia
+        ixx="0.00451355211596393"
+        ixy="0.000226886691793064"
+        ixz="-3.47073159403849E-05"
+        iyy="0.0020800955861839"
+        iyz="3.7679008173862E-05"
+        izz="0.00247634265148738" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="4"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="elbow">
+    <inertial>
+      <origin
+        xyz="-0.318026991497227 -0.149944416333569 0.753194447303895"
+        rpy="0 0 0" />
+      <mass
+        value="0.636895031335" />
+      <inertia
+        ixx="0.00133892364548078"
+        ixy="0.000134705336582021"
+        ixz="-8.24805055360625E-21"
+        iyy="1.35523244846123E-05"
+        iyz="8.19827201769394E-20"
+        izz="0.0013524759699654" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/elbow.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_arm_controller/meshes/elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="elbow_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="shoulder" />
+    <child
+      link="elbow" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="4"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
